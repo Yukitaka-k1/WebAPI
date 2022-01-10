@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flickr写真検索</title>
+  <meta name="description" content="Flickr写真検索のページです">
+
+  <!-- Webフォント -->
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- header -->
+  <div class="header">
+    <h1>Flickr写真検索</h1>
+  </div>
+  <div id="app-vue">
+    <!-- search-photo -->
+    <div id="search-photo" class="search-photo">
+      <form class="search-container" @submit.prevent="fetchImagesFromFlickr">
+        <div class="search-text">
+          <label for="search-text">検索文字</label>
+          <input name="search" type="text" class="form-control" id="search-text" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            入力してください。
+          </div>
+        </div>
+        <div class="max-photos">
+          <label for="max-photos">最大表示数</label>
+          <select v-model="searchcnt" class="custom-select d-block w-100" id="max-photos">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+          </select>
+        </div>
+        <button class="photo-btn btn btn-primary btn-lg btn-block" type="submit">検索開始</button>
+      </form>
+    </div>
+    <!-- photos -->
+    <div id="photos" class="photos">
+      <v-cmp-photos></v-cmp-photos>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <p class="copyright">&copy; Yukitaka Kato, ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/vue-gallery.js"></script>
+
+</body>
+
+</html>

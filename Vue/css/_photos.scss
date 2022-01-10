@@ -1,0 +1,111 @@
+//
+// photosのスタイル
+//
+// photos
+/*
+ * -------------------------------
+ * ツールチップの表示 - ここから
+ * -------------------------------
+ */
+.photos {
+  background-color: $akeao;
+  padding: 0 0 2rem 0;
+}
+
+.img-tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* ツールチップの中身 */
+.img-tooltip:before {
+  position: absolute;
+
+  /* 縦軸： 下に移動 */
+  top: 100%;
+  margin-top: 6px;
+
+  /* 横軸： 中央に移動 */
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1070;
+
+  min-width: 200px;
+  padding: 7px;
+
+  font-size: 0.9rem;
+  color: $moji;
+  text-align: center;
+
+  background-color: #000;
+  border-radius: 4px;
+
+  /* data-text属性の属性値を、ツールチップとして表示する */
+  content: attr(data-text);
+
+  /* デフォルトでツールチップは非表示 */
+  opacity: 0;
+  visibility: hidden;
+
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
+  transition: opacity 0.3s ease-out;
+}
+
+/* ツールチップの矢印 */
+.img-tooltip:after {
+  position: absolute;
+
+  /* 縦軸 */
+  top: 100%;
+  margin-top: -7px;
+
+  /* 横軸 */
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1070;
+
+  /* 矢印の三角形部分 */
+  border-color: transparent transparent #000 transparent;
+  border-style: solid;
+  border-width: 7px;
+
+  content: "";
+
+  /* デフォルトで非表示 */
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease-out;
+}
+
+.img-tooltip:hover:before,
+.img-tooltip:hover:after {
+  /* マウスオーバーでツールチップを表示 */
+  opacity: 1;
+  visibility: visible;
+}
+/*
+ * -------------------------------
+ * ツールチップの表示 - ここまで
+ * -------------------------------
+ */
+.photo-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 0 1rem;
+  @media (min-width: 769px) {
+    flex-direction: row;
+    margin: 0 0 0 2rem;
+  }
+}
+
+.image-gallery__item {
+  margin: 3rem 1rem 0 1rem;
+  width: 44%;
+  @media (min-width: 769px) {
+    width: 18%;
+  }
+}

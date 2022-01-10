@@ -1,0 +1,278 @@
+@charset "UTF-8";
+/* 文字コードの指定 */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 1.75;
+  color: #f0f1f2;
+  background-color: #115d8c;
+}
+
+a {
+  color: #f0f1f2;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+br {
+  display: block;
+  content: "";
+  margin: 1rem 0;
+}
+
+h1 {
+  color: #f0f1f2;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 3.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+@media (min-width: 769px) {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+
+h2 {
+  color: #f0f1f2;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (min-width: 769px) {
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+h3 {
+  color: #f0f1f2;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.header {
+  background-color: #115d8c;
+  top: 0;
+  width: 100%;
+}
+
+.header h1 {
+  padding: 2rem;
+}
+
+/*
+ * -------------------------------
+ * ツールチップの表示 - ここから
+ * -------------------------------
+ */
+.photos {
+  background-color: #05dbf2;
+  padding: 0 0 2rem 0;
+}
+
+.img-tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* ツールチップの中身 */
+.img-tooltip:before {
+  position: absolute;
+  /* 縦軸： 下に移動 */
+  top: 100%;
+  margin-top: 6px;
+  /* 横軸： 中央に移動 */
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1070;
+  min-width: 200px;
+  padding: 7px;
+  font-size: 0.9rem;
+  color: #f0f1f2;
+  text-align: center;
+  background-color: #000;
+  border-radius: 4px;
+  /* data-text属性の属性値を、ツールチップとして表示する */
+  content: attr(data-text);
+  /* デフォルトでツールチップは非表示 */
+  opacity: 0;
+  visibility: hidden;
+  -webkit-box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
+  -webkit-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+
+/* ツールチップの矢印 */
+.img-tooltip:after {
+  position: absolute;
+  /* 縦軸 */
+  top: 100%;
+  margin-top: -7px;
+  /* 横軸 */
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1070;
+  /* 矢印の三角形部分 */
+  border-color: transparent transparent #000 transparent;
+  border-style: solid;
+  border-width: 7px;
+  content: "";
+  /* デフォルトで非表示 */
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+}
+
+.img-tooltip:hover:before,
+.img-tooltip:hover:after {
+  /* マウスオーバーでツールチップを表示 */
+  opacity: 1;
+  visibility: visible;
+}
+
+/*
+ * -------------------------------
+ * ツールチップの表示 - ここまで
+ * -------------------------------
+ */
+.photo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 0 0 1rem;
+}
+
+@media (min-width: 769px) {
+  .photo-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 0 0 0 2rem;
+  }
+}
+
+.image-gallery__item {
+  margin: 3rem 1rem 0 1rem;
+  width: 44%;
+}
+
+@media (min-width: 769px) {
+  .image-gallery__item {
+    width: 18%;
+  }
+}
+
+.search-photo {
+  background-color: #11538c;
+  padding: 2rem;
+}
+
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (min-width: 769px) {
+  .search-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.search-text {
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .search-text {
+    width: 45%;
+  }
+}
+
+.max-photos {
+  width: 100%;
+  margin: 1rem 0 0 0;
+}
+
+@media (min-width: 769px) {
+  .max-photos {
+    margin: 0;
+    width: 45%;
+  }
+}
+
+.photo-btn {
+  margin: 2rem 0 0 0;
+}
+
+.footer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #115d8c;
+  font-size: 2rem;
+}
+
+.copyright {
+  text-align: center;
+  color: #f0f1f2;
+}
+
+.copyright p {
+  font-size: 1.4rem;
+  margin: 2rem;
+}
+
+@media (min-width: 769px) {
+  .copyright p {
+    font-size: 2.4rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,22 @@
+//
+// フッターのスタイル
+//
+// フッター
+.footer {
+  align-items: center;
+  justify-content: center;
+  background-color: $koiao2;
+  font-size: 2rem;
+}
+
+.copyright {
+  text-align: center;
+  color: $moji;
+  p {
+    font-size: 1.4rem;
+    margin: 2rem;
+    @media (min-width: 769px) {
+      font-size: 2.4rem;
+    }
+  }
+}
